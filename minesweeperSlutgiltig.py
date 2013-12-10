@@ -21,7 +21,6 @@ class Minesweeper():
         self.exitButton.pack(side=RIGHT)
         self.restartButton = Button(self.frameHead, command=lambda: self.restartMinesweeper(), text="Starta Om") #knapp - startar om spelet
         self.restartButton.pack(side=RIGHT)
-
         self.flag = 0 #0 = skjuta är valt, 1 = flagga är valt
         self.name = "" #namn matas in av användaren vid vinst
         self.gridSize = gridSize
@@ -173,7 +172,6 @@ class Minesweeper():
                         k.button["text"] = ""
                     else:
                         k.button["text"] = k.minesAround
-
         self.lossPop = Tk()
         self.lossPop.title("Du dog")
         self.lossPop.geometry("+310+250")
@@ -184,7 +182,6 @@ class Minesweeper():
     def gameLossKill(self):
         self.lossPop.destroy()
         self.exitMinesweeper()
-
 
     """ Spelaren har hittat alla minor. Timern slutar räkna och poängen räknas ut.
         Popup som manar användaren att ange namn visas.""" 
@@ -272,7 +269,6 @@ class MineSweeperObject():
 """ Funktionen körs när användaren valt svårighetsnivå. Startar Spelet  """
 def gameMode(optPop, gridSize, mineCount):
     Minesweeper(gridSize, mineCount)
-
     optPop.destroy()
 
 """ Kollar ifall de inmatade värdena uppfyller kraven för att skapa spelplan. """
@@ -315,10 +311,8 @@ def gameInfo():
     infoPop = Tk()
     infoPop.title("Information")
     infoText = Label(infoPop, text="Minröj\nDu kan välja svårighetsgrad, lätt, mellan eller svår.\nDu kan också mata in egna värden, vill du ha en 10x10 matris, skriver du 10.\nMinst 10% av spelplanen måste vara minor.\nFör att växla mellan att skjuta eller flagga minor klickar du på knappen under spelplanen.").grid(column=1,row=1, pady=20, padx=20)
-
     infoOk = Button(infoPop, text="OK", command=lambda: gameOptions(infoPop)).grid(column=1, row=2, pady=20, padx=20)
 
-    
 """ Startar programmet """
 gameInfo()
 
